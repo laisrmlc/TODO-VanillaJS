@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vanilla-js.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO Vanilla JS</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="todo-page">
+      <h1>Vanilla JS TODO List</h1>
+      <div class="new-task">
+        <div class="input-button-container">          
+          <input id="add-input" type="text" name="add-item" placeholder="Add a new task..." />
+          <button id="add-button" class="add-button" onclick="controller.addTask()">            
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+            </svg>
+          </button>
+        </div>
+        <p id="error-message" class="error-message">Task already added!</p>
+      </div>
+      <div id="todo" class="todo">
+        <ul id="todo-list"></ul>
+      </div>
+    </div>
+    
+    <script src="./index.js"></script>
+  </body>
+</html>
