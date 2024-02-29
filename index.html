@@ -9,11 +9,11 @@
   </head>
   <body>
     <div class="todo-page">
-      <h1>Vanilla JS TODO List</h1>
+      <h1 class="title">Vanilla JS TODO List</h1>
       <div class="new-task">
         <div class="input-button-container">          
-          <input id="add-input" type="text" name="add-item" placeholder="Add a new task..." />
-          <button id="add-button" class="add-button" onclick="controller.addTask()">            
+          <input class="custom-input" id="add-input" type="text" name="add-item" placeholder="Add a new task..." />
+          <button id="add-button" class="add-button custom-button" onclick="controller.addTask()">            
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
             </svg>
@@ -22,7 +22,7 @@
         <p id="error-message" class="error-message">Task already added!</p>
       </div>
       <div id="todo" class="todo">
-        <ul id="todo-list"></ul>
+        <ul id="todo-list" class="todo-list"></ul>
       </div>
     </div>
     

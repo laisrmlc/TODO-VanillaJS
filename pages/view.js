@@ -33,6 +33,7 @@ view = {
       
       // Button to check if the task was done
       const checkTaskButton = document.createElement('button')
+      checkTaskButton.classList.add('custom-button')
       renderIcon(checkTaskButton, uncheckedIconProps.paths, uncheckedIconProps.classes)
       checkTaskButton.classList.add('button-check')
 
@@ -58,6 +59,7 @@ view = {
       const deleteButton = document.createElement('button')
       renderIcon(deleteButton, deleteIconProps.paths, deleteIconProps.classes)
       deleteButton.classList.add('button-delete')
+      deleteButton.classList.add('custom-button')
 
       // Delete button event listener
       deleteButton.addEventListener('click', function() {

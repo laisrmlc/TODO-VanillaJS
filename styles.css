@@ -6,17 +6,17 @@ body {
   background-color: #6254b0;
 }
 
-h1 {
+.title {
   color: #806ee6;
   flex-direction: row;
 }
 
-button {
+.custom-button {
   border-radius: 5px;
   border-color: transparent;
 }
 
-input {
+.custom-input {
   border-radius: 5px;
   border-color: #6254b0;
   padding: 10px;
@@ -25,13 +25,12 @@ input {
   flex: 1;
 }
 
-ul {
+.todo-list {
   list-style-type: none;
   padding: 0;
 }
 
-ul li {
-  width: 100%;
+.todo-list li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
