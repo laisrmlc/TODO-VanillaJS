@@ -29,7 +29,13 @@ model = {
   },
 
   addTask: function(taskToBeAdded) {
-    if (taskToBeAdded) {
+    if (this.tasks.find(item => item.name === taskToBeAdded)) {
+      model.setErrorMessage('There can be no duplicated tasks')
+    } else if (!taskToBeAdded) {
+      model.setErrorMessage('There can be no empty task')
+    } else {
+      model.setErrorMessage('')
+      
       this.tasks.push(taskToBeAdded)
     }
   },
@@ -83,8 +89,9 @@ view = {
       taskToRender.textContent = task.name
       taskToRender.className = task.status === completed ? completed : ''
       
-      const checkTaskButton = document.createElement('button')      
+      const checkTaskButton = document.createElement('button')    
       checkTaskButton.innerHTML = uncheckedIcon
+      checkTaskButton.classList.add('button-check')
 
       checkTaskButton.addEventListener('click', function() {
         controller.clickOnTask(task.name)
@@ -101,7 +108,8 @@ view = {
       buttonWrapper.appendChild(checkTaskButton)
 
       const deleteButton = document.createElement('button')
-      deleteButton.textContent = 'x'
+      deleteButton.innerHTML = deleteIcon
+      deleteButton.classList.add('button-delete')
       deleteButton.addEventListener('click', function() {
         controller.deleteTask(task.name)
       })
@@ -129,17 +137,10 @@ controller = {
 
   addTask: function() {
     const newTaskContent = document.getElementById('add-input').value
+    
+    model.addTask({ name: newTaskContent, status: uncompleted })
+
     const tasks = model.getTasks()
-
-    if (tasks.find(item => item.name === newTaskContent)) {
-      model.setErrorMessage('There can be no duplicated tasks')
-    } else if (!newTaskContent) {
-      model.setErrorMessage('There can be no empty task')
-    } else {
-      model.setErrorMessage('')
-      model.addTask({ name: newTaskContent, status: uncompleted })
-    }
-
     view.renderList(tasks)
   },
 
