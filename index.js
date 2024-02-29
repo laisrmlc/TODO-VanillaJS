@@ -86,36 +86,46 @@ view = {
       const buttonWrapper = document.createElement('div')
       buttonWrapper.setAttribute('class', 'buttons-wrapper')
 
+      // New task to be added
       taskToRender.textContent = task.name
       taskToRender.className = task.status === completed ? completed : ''
       
+      // Button to check if the task was done
       const checkTaskButton = document.createElement('button')    
       checkTaskButton.innerHTML = uncheckedIcon
       checkTaskButton.classList.add('button-check')
 
+      // Check button event listener
       checkTaskButton.addEventListener('click', function() {
         controller.clickOnTask(task.name)
       })
 
+      // Check which icon should be display (checked or unchecked)
       if (task.status === completed) {
-        // Set SVG markup for checked checkbox
+        taskToRender.classList.add('completed-task')
         checkTaskButton.innerHTML = checkedIcon
       } else {
-        // Set SVG markup for unchecked checkbox
+        taskToRender.classList.remove('completed-task')
         checkTaskButton.innerHTML = uncheckedIcon
       }
 
+      // Group of delete and check button
       buttonWrapper.appendChild(checkTaskButton)
 
+      // Delete button
       const deleteButton = document.createElement('button')
       deleteButton.innerHTML = deleteIcon
       deleteButton.classList.add('button-delete')
+
+      // Delete button event listener
       deleteButton.addEventListener('click', function() {
         controller.deleteTask(task.name)
       })
 
+      // Group of delete and check button
       buttonWrapper.appendChild(deleteButton)
 
+      // List element
       taskToRender.appendChild(buttonWrapper)
 
       todoList.appendChild(taskToRender)
