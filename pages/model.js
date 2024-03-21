@@ -19,7 +19,7 @@ model = {
   addTask: function(taskToBeAdded) {
     if (this.tasks.find(item => item.name === taskToBeAdded)) {
       model.setErrorMessage('There can be no duplicated tasks')
-    } else if (!taskToBeAdded) {
+    } else if (!taskToBeAdded || !taskToBeAdded.name) {
       model.setErrorMessage('There can be no empty task')
     } else {
       model.setErrorMessage('')
